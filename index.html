@@ -3,54 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الشناوي لإنقاذ السيارات - أسرع ونش سيارات</title>
+    <title>الشناوي لخدمات نقل وإنقاذ السيارات</title>
     <style>
-        body {
-            font-family: Tahoma, sans-serif;
-            background-color: #0f172a;
-            color: #ffffff;
-            text-align: center;
-            padding: 50px 20px;
-            margin: 0;
+        :root {
+            --primary-color: #0f172a;
+            --secondary-color: #1e293b;
+            --accent-color: #f59e0b;
+            --green-color: #22c55e;
+            --whatsapp-color: #25d366;
+            --text-color: #ffffff;
+            --text-muted: #cbd5e1;
         }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #1e293b;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-        }
-        h1 {
-            color: #f59e0b;
-            margin-bottom: 10px;
-        }
-        p {
-            font-size: 18px;
-            color: #cbd5e1;
-            margin-bottom: 30px;
-        }
-        .btn {
-            display: inline-block;
-            background-color: #22c55e;
-            color: white;
-            padding: 15px 30px;
-            font-size: 20px;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(34, 197, 94, 0.4);
-        }
-        .btn:hover {
-            background-color: #16a34a;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Tahoma, sans-serif; }
+        body { background-color: var(--primary-color); color: var(--text-color); line-height: 1.6; padding-bottom: 80px; }
+        
+        /* Header */
+        header { background: var(--secondary-color); padding: 15px; border-bottom: 2px solid var(--accent-color); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo-area h1 { font-size: 18px; color: var(--accent-color); }
+        .logo-area p { font-size: 11px; color: var(--text-muted); }
+        .header-phones { text-align: left; font-size: 13px; font-weight: bold; color: var(--accent-color); }
+
+        /* Hero Section */
+        .hero { text-align: center; padding: 25px 15px; background: linear-gradient(rgba(15,23,42,0.9), rgba(15,23,42,0.9)), url('https://images.unsplash.com/photo-1508974239320-0a029497e820?w=600') center/cover; }
+        .hero h2 { font-size: 22px; color: var(--accent-color); margin-bottom: 10px; }
+        .hero p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; }
+
+        /* Calculator Box */
+        .calc-box { background: var(--secondary-color); border-radius: 10px; padding: 15px; margin: 15px auto; max-width: 400px; border: 1px solid #334155; text-align: right; }
+        .calc-box h3 { font-size: 15px; color: var(--accent-color); margin-bottom: 10px; text-align: center; }
+        .calc-box select, .calc-box button { width: 100%; padding: 10px; margin-top: 8px; border-radius: 5px; border: none; font-size: 14px; }
+        .calc-box select { background: #0f172a; color: white; }
+        .calc-box button { background: var(--accent-color); color: #000; font-weight: bold; cursor: pointer; }
+
+        /* Sections */
+        .section-title { text-align: center; font-size: 18px; margin: 20px 0 10px; color: var(--accent-color); border-bottom: 2px solid #334155; padding-bottom: 5px; }
+        
+        /* Areas Tags */
+        .areas-grid { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 0 15px; }
+        .area-tag { background: var(--secondary-color); padding: 8px 12px; border-radius: 20px; font-size: 13px; border: 1px solid #334155; }
+
+        /* Services Icons */
+        .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 15px; max-width: 500px; margin: 0 auto; }
+        .service-card { background: var(--secondary-color); padding: 10px; border-radius: 8px; text-align: center; font-size: 11px; border: 1px solid #334155; }
+        .service-card span { font-size: 20px; display: block; margin-bottom: 5px; }
+
+        /* Gallery */
+        .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 15px; max-width: 600px; margin: 0 auto; }
+        .gallery-item { background: var(--secondary-color); border-radius: 8px; overflow: hidden; border: 1px solid #334155; text-align: center; }
+        .gallery-item img { width: 100%; height: 110px; object-fit: cover; }
+        .gallery-item p { padding: 8px; font-size: 12px; }
+
+        /* Fixed Bottom Bar */
+        .bottom-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: var(--secondary-color); display: flex; justify-content: space-around; padding: 10px; border-top: 2px solid #334155; z-index: 1000; }
+        .bottom-bar a { flex: 1; text-align: center; padding: 8px 5px; font-size: 12px; font-weight: bold; color: white; text-decoration: none; border-radius: 5px; margin: 0 3px; }
+        .btn-call { background: var(--green-color); }
+        .btn-wa { background: var(--whatsapp-color); }
+        .btn-call2 { background: #d97706; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>الشناوي لإنقاذ السيارات</h1>
-        <p>خدمة إنقاذ وسحب سيارات سريعة وآمنة على مدار الساعة.</p>
-        <a href="tel:01000000000" class="btn">اتصل بالونش الآن</a>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-area">
+            <h1>الشناوي للخدمات</h1>
+            <p>لخدمات نقل وإنقاذ السيارات</p>
+        </div>
+        <div class="header-phones">
+            📞 01000000000<br>📞 01011111111
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>أسرع ونش في مصر، اتصل الآن يصلك أقرب ونش!</h2>
+        <p>ونش إنقاذ سريع خلال 15 دقيقة على مدار الساعة</p>
+
+        <!-- Calculator -->
+        <div class="calc-box">
+            <h3>حاسبة السعر (Calculator)</h3>
+            <select>
+                <option>من: اختر مكان العطل</option>
+                <option>المرج</option>
+                <option>العبور</option>
+                <option>جسر السويس</option>
+                <option>مدينتي</option>
+            </select>
+            <select>
+                <option>إلى: اختر وجهة الوصول</option>
+                <option>القاهرة الكبرى</option>
+                <option>المحافظات الأخرى</option>
+            </select>
+            <button>احصل على السعر</button>
+        </div>
+    </section>
+
+    <!-- Areas -->
+    <h3 class="section-title">مناطق الخدمة</h3>
+    <div class="areas-grid">
+        <div class="area-tag">المرج</div>
+        <div class="area-tag">العبور</div>
+        <div class="area-tag">جسر السويس</div>
+        <div class="area-tag">مدينة نصر</div>
+        <div class="area-tag">السلام</div>
+        <div class="area-tag">الرحاب</div>
+        <div class="area-tag">مدينتي</div>
+        <div class="area-tag">بدر</div>
+        <div class="area-tag">العاصمة الإدارية</div>
+        <div class="area-tag">الشروق</div>
     </div>
+
+    <!-- Services -->
+    <h3 class="section-title">Services</h3>
+    <div class="services-grid">
+        <div class="service-card"><span>🚜</span>Winch Hydraulic</div>
+        <div class="service-card"><span>🚨</span>Crash Recovery</div>
+        <div class="service-card"><span>🚚</span>Province Transport</div>
+        <div class="service-card"><span>🔋</span>Battery Help</div>
+    </div>
+
+    <!-- Gallery -->
+    <h3 class="section-title">معرض الأعمال وعمليات الإنقاذ الميدانية</h3>
+    <div class="gallery-grid">
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=300" alt="سحب سيارة">
+            <p>سحب سيارات رياضية (فيراري)</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=300" alt="نقل سيارة فارهة">
+            <p>نقل سيارات فارهة (بورش كايين)</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=300" alt="نقل دراجات">
+            <p>نقل سيارات الحصن</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=300" alt="إنقاذ سيارات">
+            <p>نقل سيارات فارهة (G-Class)</p>
+        </div>
+    </div>
+
+    <!-- Bottom Fixed Bar -->
+    <div class="bottom-bar">
+        <a href="tel:01000000000" class="btn-call">Call Now<br>01000000000</a>
+        <a href="https://wa.me/201000000000" class="btn-wa">WhatsApp<br>واتساب مباشر</a>
+        <a href="tel:01011111111" class="btn-call2">Secondary<br>01011111111</a>
+    </div>
+
 </body>
 </html>
